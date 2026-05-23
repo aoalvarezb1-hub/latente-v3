@@ -1,0 +1,26 @@
+{
+  "name": "LATENTE — Revista Digital",
+  "short_name": "LATENTE",
+  "description": "Revista de cultura urbana e identidad bogotana. Edición N° 1 · 2026.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#000000",
+  "theme_color": "#a3000f",
+  "lang": "es",
+  "categories": ["magazines", "news", "lifestyle"],
+  "icons": [
+    {
+      "src": "assets/images/portada/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/portada/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

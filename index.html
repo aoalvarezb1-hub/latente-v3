@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LATENTE — Revista de cultura urbana e identidad bogotana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json"/>
+  <meta name="theme-color" content="#a3000f"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  <meta name="apple-mobile-web-app-title" content="LATENTE"/>
+  <link rel="apple-touch-icon" href="assets/images/portada/icon-192.png"/>
+</head>
+<body>
+
+<div id="reading-progress"></div>
+
+<!-- NAV -->
+<nav id="nav" class="nav">
+  <a href="#portada" class="nav-logo">LATENTE</a>
+  <div class="nav-right">
+    <span id="nav-section-label" class="nav-section-label"></span>
+    <!-- BOTÓN PDF REVISTA -->
+    <a href="assets/pdf/latente-revista.pdf" download="LATENTE-Revista-Ed1.pdf" target="_blank" class="nav-pdf-btn" title="Ver/descargar revista PDF">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      <span>Ver PDF</span>
+    </a>
+    <button id="menu-btn" class="menu-btn" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MENU OVERLAY -->
+<div id="menu-overlay" class="menu-overlay">
+  <button id="menu-close" class="menu-close">✕</button>
+  <div class="menu-overlay-content">
+    <p class="menu-edicion">Edición Nº 1 · 2026</p>
+    <nav class="menu-nav">
+      <a href="#portada"     class="menu-item" data-num="00">LATENTE</a>
+      <a href="#chicha"      class="menu-item" data-num="01">La Chicha</a>
+      <a href="#expresiones" class="menu-item" data-num="02">Expresiones Bogotanas</a>
+      <a href="#rolo"        class="menu-item" data-num="03">¿Qué tan rolo eres?</a>
+      <a href="#bogota2050"  class="menu-item" data-num="04">Bogotá 2050</a>
+      <a href="#subterranea" class="menu-item" data-num="05">Bogotá Subterránea</a>
+      <a href="#barrios"     class="menu-item" data-num="06">Barrios con Raíces</a>
+    </nav>
+    <!-- PDF en menú -->
+    <a href="assets/pdf/latente-revista.pdf" download="LATENTE-Revista-Ed1.pdf" target="_blank" class="menu-pdf-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Descargar revista en PDF
+    </a>
+    <p class="menu-footer">Revista de cultura urbana e identidad bogotana</p>
+  </div>
+</div>
+
+<!-- LIGHTBOX GLOBAL (imágenes línea de tiempo y galería) -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <div class="lb-content" onclick="event.stopPropagation()">
+    <img id="lb-img" src="" alt=""/>
+    <p id="lb-caption"></p>
+  </div>
+  <button class="lb-prev" id="lb-prev" onclick="lbNav(-1)">&#8592;</button>
+  <button class="lb-next" id="lb-next" onclick="lbNav(1)">&#8594;</button>
+</div>
+
+<!-- ═══════════════════════════════
+     00 · PORTADA
+═══════════════════════════════ -->
+<section id="portada" class="panel panel-portada" data-section="Portada">
+  <div class="portada-bg">
+    <!-- IMAGEN: assets/images/portada/portada-bg.jpg | 1920×1080px -->
+    <div class="portada-img-ph">
+      <svg class="skyline-svg" viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#120303"/><stop offset="100%" stop-color="#000"/></linearGradient></defs>
+        <rect width="1440" height="420" fill="url(#sg)"/>
+        <g fill="#0c0c0c" stroke="#1a1a1a" stroke-width="0.5">
+          <rect x="0" y="280" width="55" height="140"/><rect x="45" y="240" width="28" height="180"/>
+          <rect x="68" y="210" width="22" height="210"/><rect x="88" y="185" width="18" height="235"/>
+          <rect x="104" y="160" width="14" height="260"/><rect x="116" y="138" width="12" height="282"/>
+          <rect x="126" y="115" width="10" height="305"/><rect x="134" y="140" width="16" height="280"/>
+          <rect x="148" y="165" width="22" height="255"/><rect x="168" y="188" width="30" height="232"/>
+          <rect x="196" y="158" width="20" height="262"/><rect x="214" y="128" width="15" height="292"/>
+          <rect x="227" y="105" width="12" height="315"/><rect x="237" y="82"  width="10" height="338"/>
+          <rect x="245" y="105" width="14" height="315"/><rect x="257" y="132" width="20" height="288"/>
+          <rect x="275" y="158" width="28" height="262"/><rect x="301" y="180" width="34" height="240"/>
+          <rect x="333" y="148" width="22" height="272"/><rect x="353" y="118" width="16" height="302"/>
+          <rect x="367" y="95"  width="13" height="325"/><rect x="378" y="75"  width="11" height="345"/>
+          <rect x="387" y="55"  width="9"  height="365"/><rect x="394" y="75"  width="13" height="345"/>
+          <rect x="405" y="98"  width="19" height="322"/><rect x="422" y="125" width="26" height="295"/>
+          <rect x="446" y="150" width="32" height="270"/><rect x="476" y="128" width="24" height="292"/>
+          <rect x="498" y="105" width="18" height="315"/><rect x="514" y="82"  width="14" height="338"/>
+          <rect x="526" y="62"  width="11" height="358"/><rect x="535" y="42"  width="10" height="378"/>
+          <rect x="543" y="62"  width="14" height="358"/><rect x="555" y="85"  width="20" height="335"/>
+          <rect x="573" y="112" width="26" height="308"/><rect x="597" y="138" width="32" height="282"/>
+          <rect x="627" y="118" width="24" height="302"/><rect x="649" y="95"  width="18" height="325"/>
+          <rect x="665" y="72"  width="14" height="348"/><rect x="677" y="52"  width="11" height="368"/>
+          <rect x="686" y="35"  width="10" height="385"/><rect x="694" y="52"  width="14" height="368"/>
+          <rect x="706" y="75"  width="20" height="345"/><rect x="724" y="102" width="26" height="318"/>
+          <rect x="748" y="128" width="32" height="292"/><rect x="778" y="108" width="24" height="312"/>
+          <rect x="800" y="85"  width="18" height="335"/><rect x="816" y="65"  width="14" height="355"/>
+          <rect x="828" y="48"  width="12" height="372"/><rect x="838" y="65"  width="16" height="355"/>
+          <rect x="852" y="88"  width="22" height="332"/><rect x="872" y="115" width="28" height="305"/>
+          <rect x="898" y="92"  width="22" height="328"/><rect x="918" y="70"  width="16" height="350"/>
+          <rect x="932" y="52"  width="13" height="368"/><rect x="943" y="35"  width="11" height="385"/>
+          <rect x="952" y="52"  width="15" height="368"/><rect x="965" y="75"  width="21" height="345"/>
+          <rect x="984" y="102" width="28" height="318"/><rect x="1010" y="125" width="34" height="295"/>
+          <rect x="1042" y="105" width="26" height="315"/><rect x="1066" y="82" width="20" height="338"/>
+          <rect x="1084" y="62" width="16" height="358"/><rect x="1098" y="82" width="20" height="338"/>
+          <rect x="1116" y="105" width="26" height="315"/><rect x="1140" y="130" width="32" height="290"/>
+          <rect x="1170" y="110" width="24" height="310"/><rect x="1192" y="88" width="18" height="332"/>
+          <rect x="1208" y="68" width="15" height="352"/><rect x="1221" y="88" width="20" height="332"/>
+          <rect x="1239" y="112" width="26" height="308"/><rect x="1263" y="138" width="32" height="282"/>
+          <rect x="1293" y="158" width="38" height="262"/><rect x="1329" y="175" width="44" height="245"/>
+          <rect x="1371" y="192" width="69" height="228"/>
+        </g>
+        <g fill="#e1a335" opacity="0.12">
+          <rect x="128" y="120" width="3" height="4"/><rect x="240" y="88" width="3" height="4"/>
+          <rect x="390" y="62" width="3" height="4"/><rect x="537" y="48" width="3" height="4"/>
+          <rect x="688" y="40" width="3" height="4"/><rect x="830" y="52" width="3" height="4"/>
+          <rect x="945" y="40" width="3" height="4"/><rect x="1100" y="68" width="3" height="4"/>
+        </g>
+      </svg>
+    </div>
+    <div class="portada-overlay"></div>
+    <div class="portada-grain"></div>
+  </div>
+
+  <div class="portada-content">
+    <div class="portada-meta">
+      <span>Edición Nº 1</span><span class="meta-dot">·</span>
+      <span>Bogotá, Colombia</span><span class="meta-dot">·</span><span>2026</span>
+    </div>
+    <h1 class="portada-titulo">
+      <span class="tc" style="--i:0">L</span><span class="tc" style="--i:1">A</span><span class="tc" style="--i:2">T</span><span class="tc" style="--i:3">E</span><span class="tc" style="--i:4">N</span><span class="tc" style="--i:5">T</span><span class="tc" style="--i:6">E</span>
+    </h1>
+    <div class="portada-ecg" aria-hidden="true">
+      <svg viewBox="0 0 600 60" preserveAspectRatio="none">
+        <polyline id="ecg-line" points="0,30 80,30 105,30 120,5 128,55 136,30 160,30 200,30 218,18 224,42 230,30 270,30 310,30 328,8 336,52 344,30 380,30 420,30 438,12 444,48 450,30 490,30 530,30 548,15 554,45 560,30 600,30" fill="none" stroke="#a3000f" stroke-width="2"/>
+      </svg>
+    </div>
+    <p class="portada-tagline">
+      Hay ciudades que se recorren.<br>Otras, que se habitan.<br>
+      <em>Bogotá exige algo distinto: ser leída.</em>
+    </p>
+    <div class="portada-precio">
+      <span>$16.000 COP</span><span class="p-sep">·</span>
+      <span>$76,5 MX</span><span class="p-sep">·</span><span>$4.00 USD</span>
+    </div>
+    <!-- Botón PDF en portada -->
+    <div class="portada-actions">
+      <a href="#chicha" class="portada-cta">
+        <span>Comenzar lectura</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+      </a>
+      <a href="assets/pdf/latente-revista.pdf" download="LATENTE-Revista-Ed1.pdf" target="_blank" class="portada-pdf-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span>Ver / Descargar PDF</span>
+      </a>
+    </div>
+  </div>
+
+  <aside class="portada-sumario">
+    <p class="sumario-titulo">En este número</p>
+    <ul>
+      <li><span>06</span>La Chicha</li>
+      <li><span>11</span>Expresiones bogotanas</li>
+      <li><span>16</span>¿Qué tan rolo eres?</li>
+      <li><span>22</span>Bogotá 2050</li>
+      <li><span>28</span>Bogotá Subterránea</li>
+      <li><span>34</span>Barrios con Raíces</li>
+    </ul>
+  </aside>
+  <div class="portada-credito-pie"><span>Dir. editorial: Diego Armando Duarte Susa</span></div>
+  <div class="scroll-cue" id="scroll-cue"><span>Scroll</span><div class="scroll-cue-line"></div></div>
+</section>
+
+<!-- ═══════════════════════════════
+     01 · LA CHICHA — Pág. 6–10
+═══════════════════════════════ -->
+<section id="chicha" class="panel" data-section="La Chicha" data-page="06–10">
+
+  <!-- HERO -->
+  <div class="art-hero chicha-bg">
+    <div class="art-hero-img-wrap">
+      <!-- IMAGEN: assets/images/chicha/chicha-hero.jpg | 1920×1080px | Portadilla pág.6 -->
+      <picture>
+        <source srcset="assets/images/chicha/chicha-hero.webp" type="image/webp"/>
+        <img src="assets/images/chicha/chicha-hero.jpg"
+             alt="Portadilla La Chicha — tinaja de barro y mazorcas, tradición muisca en La Perseverancia, Bogotá"
+             loading="eager"
+             style="width:100%;height:100%;object-fit:cover;object-position:center top"/>
+      </picture>
+    </div>
+    <div class="art-hero-ov"></div>
+    <div class="art-hero-c">
+      <div class="art-num">01</div>
+      <span class="art-kicker">Tradición censurada · Pág. 06–10</span>
+      <h2 class="art-titulo">La<br><em>Chicha</em></h2>
+      <p class="art-sub">Historia de una bebida que sobrevivió a la prohibición y fermentó la identidad de Bogotá.</p>
+      <div class="art-lugar"><span class="ldot"></span>La Perseverancia · Bogotá</div>
+    </div>
+    <!-- Audio -->
+    <div class="apc" id="apc-chicha">
+      <button class="apc-btn" onclick="toggleAudio('apc-chicha')">
+        <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        <svg class="ico-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+      </button>
+      <div class="apc-info"><span class="apc-t">Sonido ambiental</span><span class="apc-d">La Chicha · pág. 7</span></div>
+      <div class="apc-wave"><span></span><span></span><span></span><span></span><span></span></div>
+      <audio id="apc-chicha-src" loop preload="none"><source src="assets/audio/chicha/chicha-ambient.mp3" type="audio/mpeg"/></audio>
+    </div>
+    <!-- Video -->
+    <div class="vec" id="vec-chicha">
+      <div class="vec-thumb">
+        <img src="https://img.youtube.com/vi/LYHY0u4wOu8/maxresdefault.jpg" alt="Historia de la Chicha" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="vec-fb"><svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="#e1a335" stroke-width="1.5"/><polygon points="22,15 22,45 48,30" fill="#e1a335" opacity="0.8"/></svg></div>
+        <button class="vec-play" onclick="openVideo('https://www.youtube.com/embed/LYHY0u4wOu8?autoplay=1','vec-chicha')">
+          <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="29" fill="rgba(0,0,0,.65)"/><polygon points="22,15 22,45 48,30" fill="white"/></svg>
+        </button>
+      </div>
+      <div class="vec-info"><span class="vec-lbl">Ver video · pág. 6</span><p class="vec-title">Historia de la Chicha</p></div>
+      <div class="vec-player" id="vec-chicha-player" style="display:none">
+        <button class="vec-close" onclick="closeVideo('vec-chicha')">✕</button>
+        <iframe id="vec-chicha-iframe" src="" allow="autoplay;fullscreen" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEXTO INTRO -->
+  <div class="content-blk bg-cream">
+    <div class="inner two-col">
+      <div class="col-t">
+        <p class="drop-cap">En Bogotá hay sabores que no solo se prueban: se recuerdan. Entre ellos, la chicha ocupa un lugar especial. Elaborada a base de maíz fermentado, esta bebida ancestral ha sido testigo silencioso de la historia de la ciudad.</p>
+        <p>Celebrada por comunidades indígenas, perseguida por las élites, prohibida por el Estado y finalmente reconocida como patrimonio cultural. En el barrio La Perseverancia, la chicha encontró refugio y se convirtió en símbolo de memoria, resistencia e identidad.</p>
+        <blockquote class="art-bq">"La chicha no nació como bebida popular urbana: nació como ritual y símbolo de abundancia para los pueblos muiscas."</blockquote>
+        <p>Para los muiscas, la chicha era elemento ceremonial, alimenticio y simbólico. Se usaba en rituales religiosos, celebraciones de cosecha y reuniones comunitarias del altiplano cundiboyacense.</p>
+      </div>
+      <div class="col-m">
+        <!-- IMAGEN: assets/images/chicha/chicha-pag7.jpg | 700×900px | pág.7 -->
+        <picture>
+          <source srcset="assets/images/chicha/chicha-pag7.webp" type="image/webp"/>
+          <img src="assets/images/chicha/chicha-pag7.jpg"
+               alt="Mujer indígena en traje tradicional sosteniendo una vasija de chicha — La Perseverancia, Bogotá"
+               loading="lazy"
+               style="width:100%;height:100%;object-fit:cover;object-position:top center"/>
+        </picture>
+        <p class="img-cap">Tradición viva en La Perseverancia · Bogotá</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LÍNEA DE TIEMPO -->
+  <div class="content-blk bg-black">
+    <div class="inner">
+      <h3 class="sh-w">Una historia de resistencia</h3>
+      <p class="sl-w">Desde el ritual muisca hasta el patrimonio cultural — haz clic en cada momento para ver imagen</p>
+      <div class="tl-wrap" id="tl-chicha">
+        <div class="tl-spine"></div>
+        <div class="tl-track">
+
+          <div class="tl-item" data-aos-offset="tl">
+            <div class="tl-dot td-gold"></div>
+            <div class="tl-card">
+              <span class="tl-yr">Precolombino</span>
+              <h4>Ritual muisca</h4>
+              <p>Elemento ceremonial y símbolo de abundancia. El maíz conectaba a los muiscas con la tierra y sus ciclos naturales en el altiplano.</p>
+              <div class="tl-tags"><span class="tl-tag tag-origen">Origen</span></div>
+              <!-- BOTÓN LIGHTBOX -->
+              <!-- IMAGEN: assets/images/chicha/tl-precolombino.jpg | 800×560px | Arte muisca con chicha -->
+              <button class="tl-img-btn" onclick="openLightbox('assets/images/chicha/tl-precolombino.jpg','Arte muisca — Ritual con chicha, altiplano cundiboyacense')">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="7.5" cy="7.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                Ver imagen
+              </button>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <span class="tl-yr">Época Colonial</span>
+              <h4>Chicherías de Santa Fe</h4>
+              <p>Puntos de encuentro para artesanos y trabajadores. Las autoridades ven en ellas focos de "mezcla social" y pérdida de control sobre la población.</p>
+              <div class="tl-tags"><span class="tl-tag tag-tension">Tensión</span></div>
+              <!-- IMAGEN: assets/images/chicha/tl-colonial.jpg | 800×560px | Grabado colonial chichería -->
+              <button class="tl-img-btn" onclick="openLightbox('assets/images/chicha/tl-colonial.jpg','Chichería colonial en Santa Fe de Bogotá — grabado histórico')">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="7.5" cy="7.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                Ver imagen
+              </button>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot td-red"></div>
+            <div class="tl-card">
+              <span class="tl-yr">1820</span>
+              <h4>Primera prohibición — Bolívar</h4>
+              <p>Tras muertes por chicha envenenada en Sogamoso, Simón Bolívar ordena su prohibición regional. Comienza la persecución institucional sistemática.</p>
+              <div class="tl-tags"><span class="tl-tag tag-prohibicion">Prohibición</span></div>
+              <!-- IMAGEN: assets/images/chicha/tl-bolivar.jpg | 800×560px | Retrato Bolívar o documento época -->
+              <button class="tl-img-btn" onclick="openLightbox('assets/images/chicha/tl-bolivar.jpg','Decreto de prohibición de la chicha — Época bolivariana, 1820')">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="7.5" cy="7.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                Ver imagen
+              </button>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot td-red"></div>
+            <div class="tl-card">
+              <span class="tl-yr">Siglo XX — Bavaria</span>
+              <h4>La cerveza contra la chicha</h4>
+              <p>Leo Kopp funda Bavaria S.A. La cerveza industrial se promueve como símbolo de modernidad e higiene. Campañas estigmatizan la chicha como insalubre y peligrosa.</p>
+              <div class="tl-tags"><span class="tl-tag tag-prohibicion">Estigmatización</span></div>
+              <!-- IMAGEN: assets/images/chicha/tl-bavaria.jpg | 800×560px | Publicidad Bavaria vs chicha -->
+              <button class="tl-img-btn" onclick="openLightbox('assets/images/chicha/tl-bavaria.jpg','Publicidad de Bavaria vs. la chicha — Siglo XX, Bogotá')">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="7.5" cy="7.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                Ver imagen
+              </button>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot td-red"></div>
+            <div class="tl-card">
+              <span class="tl-yr">9 Abr. 1948</span>
+              <h4>El Bogotazo</h4>
+              <p>El asesinato de Gaitán desata el caos. La chicha es señalada como cómplice de los disturbios. Su producción pasa a la clandestinidad total en toda la ciudad.</p>
+              <div class="tl-tags"><span class="tl-tag tag-prohibicion">Clandestinidad</span></div>
+              <!-- IMAGEN: assets/images/chicha/tl-bogotazo.jpg | 800×560px | Fotografía Bogotazo 1948 -->
+              <button class="tl-img-btn" onclick="openLightbox('assets/images/chicha/tl-bogotazo.jpg','El Bogotazo — 9 de abril de 1948, Bogotá')">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="7.5" cy="7.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                Ver imagen
+              </button>
+              <div class="tl-hotspot-wrap">
+                <button class="tl-hot" onclick="togglePanel('panel-bogotazo')">+ La Perseverancia resistió</button>
+                <div class="tl-panel" id="panel-bogotazo">
+                  <p>Mientras el Estado perseguía la chicha en toda la ciudad, el barrio obrero La Perseverancia la mantuvo viva en patios y hogares. La memoria colectiva fue más fuerte que la prohibición.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot td-gold"></div>
+            <div class="tl-card">
+              <span class="tl-yr">1991</span>
+              <h4>Patrimonio cultural</h4>
+              <p>La nueva Constitución reconoce la chicha. Nace el Festival de la Chicha, el Maíz, la Vida y la Dicha en La Perseverancia, que se celebra hasta hoy.</p>
+              <div class="tl-tags"><span class="tl-tag tag-patrimonio">Patrimonio</span></div>
+              <!-- IMAGEN: assets/images/chicha/tl-festival.jpg | 800×560px | Festival de la Chicha -->
+              <button class="tl-img-btn" onclick="openLightbox('assets/images/chicha/tl-festival.jpg','Festival de la Chicha, el Maíz, la Vida y la Dicha — La Perseverancia, Bogotá')">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="7.5" cy="7.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                Ver imagen
+              </button>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot td-gold"></div>
+            <div class="tl-card">
+              <span class="tl-yr">Hoy</span>
+              <h4>Viva en La Perseverancia</h4>
+              <p>Cada tinaja conserva +500 años de historia. Más que una bebida: memoria, territorio y resistencia cultural en el corazón de Bogotá.</p>
+              <div class="tl-tags"><span class="tl-tag tag-patrimonio">Viva</span></div>
+              <!-- IMAGEN: assets/images/chicha/tl-hoy.jpg | 800×560px | Chichería actual La Perseverancia -->
+              <button class="tl-img-btn" onclick="openLightbox('assets/images/chicha/tl-hoy.jpg','La chicha hoy — La Perseverancia, Bogotá 2024')">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="7.5" cy="7.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                Ver imagen
+              </button>
+            </div>
+          </div>
+
+        </div><!-- /tl-track -->
+      </div><!-- /tl-wrap -->
+
+      <!-- Datos -->
+      <div class="datos-row reveal">
+        <div class="dato-card"><span class="dato-n" data-target="500" data-prefix="+">+0</span><span class="dato-l">años de tradición continua desde las comunidades muiscas</span></div>
+        <div class="dato-card"><span class="dato-n" data-target="1991">0</span><span class="dato-l">año en que la Constitución reconoció la chicha como patrimonio</span></div>
+        <div class="dato-card"><span class="dato-n" data-target="1" data-suffix=" barrio">0</span><span class="dato-l">La Perseverancia: corazón de la resistencia chichera en Bogotá</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="snb"><div class="snb-in"><span class="snb-cur">01 · La Chicha</span><a href="#expresiones" class="snb-next">Siguiente: <strong>Expresiones Bogotanas</strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+</section>
+
+<!-- ═══════════════════════════════
+     02 · EXPRESIONES — Pág. 11–15
+═══════════════════════════════ -->
+<section id="expresiones" class="panel" data-section="Expresiones Bogotanas" data-page="11–15">
+  <div class="art-hero expresiones-bg">
+    <div class="art-hero-img-wrap">
+      <!-- IMAGEN: assets/images/expresiones/expresiones-hero.jpg | 1920px | Torre Catedral pág.11 -->
+      <picture>
+        <source srcset="assets/images/expresiones/expresiones-hero.webp" type="image/webp"/>
+        <img src="assets/images/expresiones/expresiones-hero.jpg"
+             alt="Torre de la Catedral Primada de Bogotá — portadilla Expresiones Bogotanas"
+             loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:center center"/>
+      </picture>
+    </div>
+    <div class="art-hero-ov"></div>
+    <div class="art-hero-c">
+      <div class="art-num">02</div>
+      <span class="art-kicker">El idioma secreto · Pág. 11–15</span>
+      <h2 class="art-titulo">Expresiones<br><em>Bogotanas</em></h2>
+      <p class="art-sub">Las palabras que nos delatan. El lenguaje como mapa de identidad urbana bogotana.</p>
+      <div class="art-lugar"><span class="ldot"></span>Bogotá, Colombia</div>
+    </div>
+    <!-- Video pág.11 -->
+    <div class="vec" id="vec-expresiones">
+      <div class="vec-thumb">
+        <img src="https://img.youtube.com/vi/SlaBJsZE4P8/maxresdefault.jpg" alt="Expresiones bogotanas" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="vec-fb"><svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="#e1a335" stroke-width="1.5"/><polygon points="22,15 22,45 48,30" fill="#e1a335" opacity="0.8"/></svg></div>
+        <button class="vec-play" onclick="openVideo('https://www.youtube.com/embed/SlaBJsZE4P8?autoplay=1','vec-expresiones')"><svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="29" fill="rgba(0,0,0,.65)"/><polygon points="22,15 22,45 48,30" fill="white"/></svg></button>
+      </div>
+      <div class="vec-info"><span class="vec-lbl">Ver video · pág. 11</span><p class="vec-title">El habla bogotana</p></div>
+      <div class="vec-player" id="vec-expresiones-player" style="display:none">
+        <button class="vec-close" onclick="closeVideo('vec-expresiones')">✕</button>
+        <iframe id="vec-expresiones-iframe" src="" allow="autoplay;fullscreen" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+    <!-- Audio ambiental pág.11 -->
+    <div class="apc apc-bottom" id="apc-expresiones">
+      <button class="apc-btn" onclick="toggleAudio('apc-expresiones')">
+        <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        <svg class="ico-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+      </button>
+      <div class="apc-info"><span class="apc-t">Audio ambiental</span><span class="apc-d">Expresiones bogotanas · pág. 11</span></div>
+      <div class="apc-wave"><span></span><span></span><span></span><span></span><span></span></div>
+      <audio id="apc-expresiones-src" loop preload="none"><source src="assets/audio/expresiones/expresiones-ambient.mp3" type="audio/mpeg"/></audio>
+    </div>
+  </div>
+
+  <!-- Glosario -->
+  <div class="content-blk bg-darkblue">
+    <div class="inner">
+      <h3 class="sh-w reveal">El glosario bogotano</h3>
+      <p class="sl-w reveal">Haz clic en cada expresión para descubrir su significado</p>
+      <div class="glosario-grid reveal">
+        <div class="gc" onclick="flipCard(this)"><div class="gc-f"><span>¿Qué más?</span></div><div class="gc-b"><p><strong>Saludo universal.</strong> Equivale a "¿cómo estás?". Se usa como bienvenida sin esperar respuesta larga. El bogotano lo dice tres veces seguidas.</p></div></div>
+        <div class="gc" onclick="flipCard(this)"><div class="gc-f"><span>De una</span></div><div class="gc-b"><p><strong>De acuerdo, sin dudar.</strong> "¿Vamos al cine?" — "¡De una!" Viene de "de una vez". Máxima afirmación bogotana.</p></div></div>
+        <div class="gc" onclick="flipCard(this)"><div class="gc-f"><span>Parce</span></div><div class="gc-b"><p><strong>Amigo, compañero.</strong> Del término "parcero". Se usa con conocidos y desconocidos por igual. Define confianza inmediata.</p></div></div>
+        <div class="gc" onclick="flipCard(this)"><div class="gc-f"><span>Gomelo</span></div><div class="gc-b"><p><strong>Persona de clase alta.</strong> Con connotación de afectación. Referido a zonas norte de Bogotá. Hoy usado con humor afectuoso.</p></div></div>
+        <div class="gc" onclick="flipCard(this)"><div class="gc-f"><span>Chévere</span></div><div class="gc-b"><p><strong>Genial, agradable.</strong> Término positivo por excelencia del español colombiano. "¡Qué chévere!" es aprobación total.</p></div></div>
+        <div class="gc" onclick="flipCard(this)"><div class="gc-f"><span>Rumba</span></div><div class="gc-b"><p><strong>Fiesta, evento nocturno.</strong> "Vamos de rumba" = salir a celebrar. La rumba bogotana tiene su geografía propia: Zona Rosa, Chapinero, La Macarena.</p></div></div>
+        <div class="gc" onclick="flipCard(this)"><div class="gc-f"><span>Mamar gallo</span></div><div class="gc-b"><p><strong>Bromear, tomar el pelo.</strong> "¿Estás mamando gallo?" = ¿Me estás tomando el pelo? Costumbre social bogotana muy arraigada.</p></div></div>
+        <div class="gc" onclick="flipCard(this)"><div class="gc-f"><span>Bacano</span></div><div class="gc-b"><p><strong>Excelente, muy bueno.</strong> "¡Ese man es bacano!" — alta aprobación social. Más enfático que chévere. Muy bogotano.</p></div></div>
+        <div class="gc" onclick="flipCard(this)"><div class="gc-f"><span>Camellar</span></div><div class="gc-b"><p><strong>Trabajar duro.</strong> "Me toca camellar" = tengo que trabajar. Del camello, animal de carga. Expresa esfuerzo sin queja.</p></div></div>
+        <div class="gc" onclick="flipCard(this)"><div class="gc-f"><span>Man / Vieja</span></div><div class="gc-b"><p><strong>Tipo / mujer.</strong> Términos neutros para referirse a cualquier persona. "Ese man" o "esa vieja" no tiene connotación negativa.</p></div></div>
+        <div class="gc" onclick="flipCard(this)"><div class="gc-f"><span>Parchado</span></div><div class="gc-b"><p><strong>Relajado, pasando el rato.</strong> "Estoy parchado en la casa" = estoy tranquilo en casa. El "parche" es el grupo de amigos.</p></div></div>
+        <div class="gc" onclick="flipCard(this)"><div class="gc-f"><span>Ñero</span></div><div class="gc-b"><p><strong>Persona de barrio popular.</strong> Puede ser despectivo o afectuoso según el contexto. Viene de "compañero". Identidad urbana reclamada.</p></div></div>
+      </div>
+
+      <!-- Animación flautas pág.12 -->
+      <div class="flauta-anm reveal">
+        <div class="flauta-notes" aria-hidden="true">
+          <span class="fnote" style="--x:7%;--d:0s;--s:.9">♪</span>
+          <span class="fnote" style="--x:21%;--d:.65s;--s:1.2">♫</span>
+          <span class="fnote" style="--x:37%;--d:1.25s;--s:.85">♩</span>
+          <span class="fnote" style="--x:55%;--d:.3s;--s:1.3">♪</span>
+          <span class="fnote" style="--x:72%;--d:.9s;--s:1.0">♫</span>
+          <span class="fnote" style="--x:87%;--d:1.7s;--s:1.1">♩</span>
+        </div>
+        <p class="flauta-kicker">Flauta traversa muisca · pág. 12</p>
+        <div class="flauta-bars">
+          <div class="fb" style="--d:0s;--h:35%"></div><div class="fb" style="--d:.07s;--h:65%"></div><div class="fb" style="--d:.14s;--h:45%"></div><div class="fb" style="--d:.21s;--h:82%"></div><div class="fb" style="--d:.28s;--h:55%"></div><div class="fb" style="--d:.35s;--h:72%"></div><div class="fb" style="--d:.42s;--h:40%"></div><div class="fb" style="--d:.49s;--h:90%"></div><div class="fb" style="--d:.56s;--h:58%"></div><div class="fb" style="--d:.63s;--h:48%"></div><div class="fb" style="--d:.7s;--h:78%"></div><div class="fb" style="--d:.77s;--h:36%"></div><div class="fb" style="--d:.84s;--h:68%"></div><div class="fb" style="--d:.91s;--h:50%"></div><div class="fb" style="--d:.98s;--h:86%"></div><div class="fb" style="--d:1.05s;--h:60%"></div>
+        </div>
+        <p class="flauta-desc">El sonido de la flauta muisca acompaña el ritual de la chicha, desde el altiplano cundiboyacense hasta los barrios de Bogotá.</p>
+        <div class="apc apc-inline" id="apc-flautas">
+          <button class="apc-btn" onclick="toggleAudio('apc-flautas')">
+            <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            <svg class="ico-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </button>
+          <div class="apc-info"><span class="apc-t">Flauta muisca · pág. 12</span><span class="apc-d">Escuchar</span></div>
+          <div class="apc-wave"><span></span><span></span><span></span><span></span><span></span></div>
+          <audio id="apc-flautas-src" preload="none"><source src="assets/audio/expresiones/flautas.mp3" type="audio/mpeg"/></audio>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="snb"><div class="snb-in"><span class="snb-cur">02 · Expresiones Bogotanas</span><a href="#rolo" class="snb-next">Siguiente: <strong>¿Qué tan rolo eres?</strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+</section>
+
+<!-- ═══════════════════════════════
+     03 · ROLO — Pág. 16–21
+═══════════════════════════════ -->
+<section id="rolo" class="panel" data-section="¿Qué tan rolo eres?" data-page="16–21">
+  <div class="art-hero rolo-bg">
+    <div class="art-hero-img-wrap">
+      <!-- IMAGEN: assets/images/rolo/rolo-hero.jpg | 1920px | Calle colonial bogotana pág.16 -->
+      <picture>
+        <source srcset="assets/images/rolo/rolo-hero.webp" type="image/webp"/>
+        <img src="assets/images/rolo/rolo-hero.jpg"
+             alt="Calle colonial de Bogotá en blanco y negro — portadilla ¿Qué tan rolo eres?"
+             loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:center center"/>
+      </picture>
+    </div>
+    <div class="art-hero-ov"></div>
+    <div class="art-hero-c">
+      <div class="art-num">03</div>
+      <span class="art-kicker">Identidad urbana · Pág. 16–21</span>
+      <h2 class="art-titulo">¿Qué tan<br><em>rolo</em> eres?</h2>
+      <p class="art-sub">Lenguaje, historia y pertenencia en la identidad bogotana.</p>
+      <div class="art-lugar"><span class="ldot"></span>Bogotá, Colombia</div>
+    </div>
+    <div class="vec" id="vec-rolo">
+      <div class="vec-thumb">
+        <img src="https://img.youtube.com/vi/0mB9Djou_lY/maxresdefault.jpg" alt="¿Qué tan rolo eres?" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="vec-fb"><svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="#e1a335" stroke-width="1.5"/><polygon points="22,15 22,45 48,30" fill="#e1a335" opacity="0.8"/></svg></div>
+        <button class="vec-play" onclick="openVideo('https://www.youtube.com/embed/0mB9Djou_lY?autoplay=1','vec-rolo')"><svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="29" fill="rgba(0,0,0,.65)"/><polygon points="22,15 22,45 48,30" fill="white"/></svg></button>
+      </div>
+      <div class="vec-info"><span class="vec-lbl">Ver video · pág. 16</span><p class="vec-title">¿Qué significa ser rolo?</p></div>
+      <div class="vec-player" id="vec-rolo-player" style="display:none">
+        <button class="vec-close" onclick="closeVideo('vec-rolo')">✕</button>
+        <iframe id="vec-rolo-iframe" src="" allow="autoplay;fullscreen" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="apc apc-bottom" id="apc-rolo">
+      <button class="apc-btn" onclick="toggleAudio('apc-rolo')">
+        <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        <svg class="ico-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+      </button>
+      <div class="apc-info"><span class="apc-t">¿Qué significa ser rolo?</span><span class="apc-d">Audio · pág. 16</span></div>
+      <div class="apc-wave"><span></span><span></span><span></span><span></span><span></span></div>
+      <audio id="apc-rolo-src" preload="none"><source src="assets/audio/rolo/rolo.mp3" type="audio/mpeg"/></audio>
+    </div>
+  </div>
+
+  <!-- Texto + animación IA personas pág.20-21 -->
+  <div class="content-blk bg-cream">
+    <div class="inner">
+      <div class="two-col">
+        <div class="col-t">
+          <h3 class="bt-dark reveal">¿Rolo de nacimiento o de adopción?</h3>
+          <p class="reveal">Bogotá es una de las ciudades de mayor migración interna en Colombia. Más del 40% de sus habitantes nacieron en otras regiones. Esto genera una pregunta constante: ¿qué hace a alguien rolo?</p>
+          <p class="reveal">La respuesta no está en el acta de nacimiento sino en la adopción de una forma de ver el mundo: el humor ácido, la puntualidad relativa, la pasión por el café, el respeto por el turno en la fila y la queja perpetua por el tráfico.</p>
+          <blockquote class="art-bq reveal">"Ser rolo no es nacer en Bogotá. Es aprender a quejarse del frío mientras la extrañas cuando no está."</blockquote>
+          <p class="reveal">El cachaquerismo, el serranismo, el costañerismo — todos llegan a Bogotá y eventualmente se convierten en algo distinto: bogotanos.</p>
+        </div>
+        <div class="col-m">
+          <!-- IMAGEN: assets/images/rolo/rolo-pag18.jpg | 700×900px | pág.18 -->
+          <picture>
+            <source srcset="assets/images/rolo/rolo-pag18.webp" type="image/webp"/>
+            <img src="assets/images/rolo/rolo-pag18.jpg"
+                 alt="Hombre bogotano caminando por callejón de ladrillo — identidad rola urbana"
+                 loading="lazy"
+                 style="width:100%;height:100%;object-fit:cover;object-position:top center"/>
+          </picture>
+        </div>
+      </div>
+
+      <!-- Animación personas caminando pág.20-21 -->
+      <div class="personas-anm reveal">
+        <canvas class="personas-canvas" id="personas-canvas"></canvas>
+        <div class="personas-stat">
+          <span class="pstat-n">+40%</span>
+          <span class="pstat-t">de los bogotanos nació fuera de la ciudad</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="snb"><div class="snb-in"><span class="snb-cur">03 · ¿Qué tan rolo eres?</span><a href="#bogota2050" class="snb-next">Siguiente: <strong>Bogotá 2050</strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+</section>
+
+<!-- ═══════════════════════════════
+     04 · BOGOTÁ 2050 — Pág. 22–27
+═══════════════════════════════ -->
+<section id="bogota2050" class="panel" data-section="Bogotá 2050" data-page="22–27">
+  <div class="art-hero bogota2050-bg">
+    <div class="art-hero-img-wrap">
+      <!-- IMAGEN: assets/images/bogota2050/bogota2050-hero.jpg | 1920px | Skyline Bogotá + Cerros pág.22 -->
+      <picture>
+        <source srcset="assets/images/bogota2050/bogota2050-hero.webp" type="image/webp"/>
+        <img src="assets/images/bogota2050/bogota2050-hero.jpg"
+             alt="Skyline de Bogotá con los Cerros Orientales y parque urbano — portadilla Bogotá 2050"
+             loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:center center"/>
+      </picture>
+    </div>
+    <div class="art-hero-ov"></div>
+    <div class="art-hero-c">
+      <div class="art-num">04</div>
+      <span class="art-kicker">Futuros posibles · Pág. 22–27</span>
+      <h2 class="art-titulo">Bogotá<br><em>2050</em></h2>
+      <p class="art-sub">Escenarios de una ciudad posible. ¿Qué Bogotá queremos construir?</p>
+      <div class="art-lugar"><span class="ldot" style="background:#4af;box-shadow:0 0 8px #4af"></span>Bogotá · 2026–2050</div>
+    </div>
+    <div class="apc apc-bottom" id="apc-metro">
+      <button class="apc-btn" onclick="toggleAudio('apc-metro')">
+        <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        <svg class="ico-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+      </button>
+      <div class="apc-info"><span class="apc-t">Metro de Bogotá</span><span class="apc-d">Sonido · pág. 26</span></div>
+      <div class="apc-wave"><span></span><span></span><span></span><span></span><span></span></div>
+      <audio id="apc-metro-src" preload="none"><source src="assets/audio/bogota2050/metro.mp3" type="audio/mpeg"/></audio>
+    </div>
+  </div>
+
+  <div class="content-blk bg-black">
+    <div class="inner">
+      <h3 class="sh-w reveal">La ciudad que viene</h3>
+      <p class="sl-w reveal">Proyectos, debates y sueños para la Bogotá del futuro</p>
+      <div class="two-col">
+        <div class="col-t">
+          <p class="reveal" style="color:rgba(255,255,255,.7)">En 2050 Bogotá tendrá entre 12 y 14 millones de habitantes. Las decisiones que se toman hoy —sobre movilidad, espacio público, agua, vivienda y medioambiente— definirán qué tipo de ciudad será esa.</p>
+          <p class="reveal" style="color:rgba(255,255,255,.7)">El metro, las ciclovías, el Parque Entrenubes, la recuperación del río Bogotá: cada proyecto es una apuesta sobre el futuro. Pero el urbanismo no es solo infraestructura — es también cultura, identidad y decisión colectiva.</p>
+          <blockquote class="art-bq reveal" style="color:rgba(255,255,255,.85);border-color:var(--oro)">"La ciudad del futuro no se planea sola. Se construye con quienes la habitan hoy."</blockquote>
+        </div>
+        <div class="col-m">
+          <!-- IMAGEN: assets/images/bogota2050/bogota2050-pag24.jpg | 700×900px | pág.24 render metro -->
+          <picture>
+            <source srcset="assets/images/bogota2050/bogota2050-pag24.webp" type="image/webp"/>
+            <img src="assets/images/bogota2050/bogota2050-pag24.jpg"
+                 alt="Vista de Bogotá con río y parque urbano — proyección ciudad del futuro 2050"
+                 loading="lazy"
+                 style="width:100%;height:100%;object-fit:cover;object-position:center center"/>
+          </picture>
+        </div>
+      </div>
+      <!-- Datos Bogotá 2050 -->
+      <div class="datos-row reveal" style="margin-top:48px">
+        <div class="dato-card"><span class="dato-n" data-target="14" data-suffix="M">0</span><span class="dato-l">habitantes proyectados para Bogotá en 2050</span></div>
+        <div class="dato-card"><span class="dato-n" data-target="5" data-suffix=" líneas">0</span><span class="dato-l">líneas de metro proyectadas para transformar la movilidad</span></div>
+        <div class="dato-card"><span class="dato-n" data-target="2028">0</span><span class="dato-l">año proyectado de apertura de la primera línea del metro</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="snb dark-snb"><div class="snb-in"><span class="snb-cur">04 · Bogotá 2050</span><a href="#subterranea" class="snb-next">Siguiente: <strong>Bogotá Subterránea</strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+</section>
+
+<!-- ═══════════════════════════════
+     05 · SUBTERRÁNEA — Pág. 28–33
+═══════════════════════════════ -->
+<section id="subterranea" class="panel" data-section="Bogotá Subterránea" data-page="28–33">
+  <div class="art-hero subterranea-bg">
+    <div class="art-hero-img-wrap">
+      <!-- IMAGEN: assets/images/subterranea/subterranea-hero.jpg | 1920px | Reja colonial pág.28 -->
+      <picture>
+        <source srcset="assets/images/subterranea/subterranea-hero.webp" type="image/webp"/>
+        <img src="assets/images/subterranea/subterranea-hero.jpg"
+             alt="Reja colonial de hierro forjado — acceso subterráneo en el centro histórico de Bogotá"
+             loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:center center"/>
+      </picture>
+    </div>
+    <div class="art-hero-ov sub-ov"></div>
+    <div class="art-hero-c">
+      <div class="art-num" style="color:rgba(163,0,15,.12)">05</div>
+      <span class="art-kicker">Lo que respira bajo tierra · Pág. 28–33</span>
+      <h2 class="art-titulo">Bogotá<br><em>Subterránea</em></h2>
+      <p class="art-sub">Túneles, acueductos, historia y leyendas bajo el asfalto de la capital.</p>
+      <div class="art-lugar"><span class="ldot" style="background:#e1a335;box-shadow:0 0 8px #e1a335"></span>Subsuelo · Bogotá</div>
+    </div>
+    <!-- Video YouTube túneles pág.28-29 -->
+    <div class="vec" id="vec-tuneles">
+      <div class="vec-thumb">
+        <img src="https://img.youtube.com/vi/2TX2A6KdkUk/maxresdefault.jpg" alt="Túneles subterráneos" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="vec-fb"><svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="28" stroke="#e1a335" stroke-width="1.5"/><polygon points="22,15 22,45 48,30" fill="#e1a335" opacity="0.8"/></svg></div>
+        <button class="vec-play" onclick="openVideo('https://www.youtube.com/embed/2TX2A6KdkUk?autoplay=1','vec-tuneles')"><svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="29" fill="rgba(0,0,0,.65)"/><polygon points="22,15 22,45 48,30" fill="white"/></svg></button>
+      </div>
+      <div class="vec-info"><span class="vec-lbl">Ver video · pág. 28–29</span><p class="vec-title">Túneles subterráneos de Bogotá</p></div>
+      <div class="vec-player" id="vec-tuneles-player" style="display:none">
+        <button class="vec-close" onclick="closeVideo('vec-tuneles')">✕</button>
+        <iframe id="vec-tuneles-iframe" src="" allow="autoplay;fullscreen" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+    <!-- Vista subterránea animada pág.28 -->
+    <div class="apc apc-bottom" id="apc-sub-video">
+      <button class="apc-btn" onclick="toggleTunel()">
+        <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        <svg class="ico-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+      </button>
+      <div class="apc-info"><span class="apc-t">Vista subterránea</span><span class="apc-d">Bogotá bajo el asfalto</span></div>
+      <div class="apc-wave"><span></span><span></span><span></span><span></span><span></span></div>
+      <div id="tunel-vis" class="tunel-vis">
+        <div class="tunel-ring"></div>
+        <div class="tunel-ring"></div>
+        <div class="tunel-ring"></div>
+        <div class="tunel-lbl">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <circle cx="22" cy="22" r="20" stroke="rgba(225,163,53,.45)" stroke-width="1"/>
+            <circle cx="22" cy="22" r="12" stroke="rgba(225,163,53,.3)" stroke-width="1"/>
+            <circle cx="22" cy="22" r="5"  stroke="rgba(225,163,53,.5)" stroke-width="1"/>
+            <line x1="22" y1="2"  x2="22" y2="8"  stroke="rgba(225,163,53,.3)" stroke-width="1"/>
+            <line x1="22" y1="36" x2="22" y2="42" stroke="rgba(225,163,53,.3)" stroke-width="1"/>
+            <line x1="2"  y1="22" x2="8"  y2="22" stroke="rgba(225,163,53,.3)" stroke-width="1"/>
+            <line x1="36" y1="22" x2="42" y2="22" stroke="rgba(225,163,53,.3)" stroke-width="1"/>
+          </svg>
+          <span>Bogotá subterránea</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-blk bg-black">
+    <div class="inner">
+      <div class="two-col">
+        <div class="col-t">
+          <h3 class="sh-w reveal">La ciudad invisible</h3>
+          <p class="reveal" style="color:rgba(255,255,255,.7)">Bajo el asfalto de Bogotá existe otra ciudad. Una red de túneles, canales, acueductos y construcciones coloniales que se extiende a lo largo y ancho del subsuelo capitalino.</p>
+          <p class="reveal" style="color:rgba(255,255,255,.7)">La Avenida Jiménez, antiguamente el río San Francisco, corre hoy soterrada bajo el concreto. El río Arzobispo, el San Agustín, el Fucha — todos fueron cubiertos en el proceso de modernización. La ciudad construyó encima de su propia historia.</p>
+          <blockquote class="art-bq reveal" style="color:rgba(255,255,255,.85);border-color:var(--oro)">"Bogotá enterró sus ríos para construir avenidas. Ahora los busca para recordar lo que fue."</blockquote>
+          <p class="reveal" style="color:rgba(255,255,255,.7)">Los túneles coloniales del centro histórico, algunos de más de 400 años, conectaban iglesias, conventos y el palacio de gobierno. Hoy permanecen sellados, aunque algunos siguen siendo explorados por investigadores e historiadores urbanos.</p>
+        </div>
+        <div class="col-m">
+          <!-- IMAGEN: assets/images/subterranea/subterranea-pag30.jpg | 700×900px | pág.30 túneles -->
+          <picture>
+            <source srcset="assets/images/subterranea/subterranea-pag30.webp" type="image/webp"/>
+            <img src="assets/images/subterranea/subterranea-pag30.jpg"
+                 alt="Arco subterráneo colonial — túneles bajo el centro histórico de Bogotá"
+                 loading="lazy"
+                 style="width:100%;height:100%;object-fit:cover;object-position:center center"/>
+          </picture>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="snb dark-snb"><div class="snb-in"><span class="snb-cur">05 · Bogotá Subterránea</span><a href="#barrios" class="snb-next">Siguiente: <strong>Barrios con Raíces</strong><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div></div>
+</section>
+
+<!-- ═══════════════════════════════
+     06 · BARRIOS — Pág. 34–39
+═══════════════════════════════ -->
+<section id="barrios" class="panel" data-section="Barrios con Raíces" data-page="34–39">
+  <div class="art-hero barrios-bg">
+    <div class="art-hero-img-wrap">
+      <!-- IMAGEN: assets/images/barrios/barrios-hero.jpg | 1920px | Ciprés + iglesia neogótica pág.34 -->
+      <picture>
+        <source srcset="assets/images/barrios/barrios-hero.webp" type="image/webp"/>
+        <img src="assets/images/barrios/barrios-hero.jpg"
+             alt="Árbol ciprés e iglesia neogótica roja — barrios con raíces vegetales en Bogotá"
+             loading="lazy"
+             style="width:100%;height:100%;object-fit:cover;object-position:center top"/>
+      </picture>
+    </div>
+    <div class="art-hero-ov"></div>
+    <div class="art-hero-c">
+      <div class="art-num">06</div>
+      <span class="art-kicker">Árboles que nombraron a Bogotá · Pág. 34–39</span>
+      <h2 class="art-titulo">Barrios con<br><em>Raíces</em></h2>
+      <p class="art-sub">Cedritos, El Nogal, Los Pinos, Álamos, Los Sauces. Los árboles que dieron nombre a la ciudad.</p>
+      <div class="art-lugar"><span class="ldot" style="background:#4a9e4a;box-shadow:0 0 8px #4a9e4a"></span>Bogotá, Colombia</div>
+    </div>
+    <!-- Audio señor hablando pág.35 -->
+    <div class="apc" style="bottom:220px;left:64px" id="apc-senor">
+      <button class="apc-btn" onclick="toggleAudio('apc-senor')">
+        <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        <svg class="ico-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+      </button>
+      <div class="apc-info"><span class="apc-t">Señor hablando · pág. 35</span><span class="apc-d">Audio narrado + animación IA</span></div>
+      <div class="apc-wave"><span></span><span></span><span></span><span></span><span></span></div>
+      <audio id="apc-senor-src" preload="none"><source src="assets/audio/barrios/senor-pag35.mp3" type="audio/mpeg"/></audio>
+    </div>
+    <!-- Audio barrios raíces pág.36 -->
+    <div class="apc apc-bottom" id="apc-barrios">
+      <button class="apc-btn" onclick="toggleAudio('apc-barrios')">
+        <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        <svg class="ico-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+      </button>
+      <div class="apc-info"><span class="apc-t">Barrios con Raíces</span><span class="apc-d">Ambiental · pág. 36</span></div>
+      <div class="apc-wave"><span></span><span></span><span></span><span></span><span></span></div>
+      <audio id="apc-barrios-src" preload="none"><source src="assets/audio/barrios/barrios-raices.mp3" type="audio/mpeg"/></audio>
+    </div>
+  </div>
+
+  <!-- Animación IA señor pág.35 + barrios -->
+  <div class="content-blk bg-cream">
+    <div class="inner">
+      <!-- Animación señor hablando pág.35 -->
+      <div class="senor-anm reveal">
+        <div class="senor-avatar">
+          <svg width="48" height="72" viewBox="0 0 48 72" fill="none">
+            <circle cx="24" cy="14" r="12" fill="rgba(163,0,15,.55)"/>
+            <path d="M10 40 Q10 30 24 30 Q38 30 38 40 L38 64 Q38 70 24 70 Q10 70 10 64 Z" fill="rgba(163,0,15,.38)"/>
+            <path d="M10 46 L3 62 M38 46 L45 62" stroke="rgba(163,0,15,.42)" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="senor-body">
+          <p class="senor-quote"><span class="tw-text" data-text="Los barrios recuerdan con su nombre lo que la urbanización les quitó. Son epitafios verdes en el mapa de la ciudad."></span><span class="tw-cursor"></span></p>
+          <p class="senor-attr">Habitante de Cedritos · Bogotá</p>
+          <div class="senor-waves">
+            <div class="swv" style="--h:30%;--d:0s"></div>
+            <div class="swv" style="--h:62%;--d:.1s"></div>
+            <div class="swv" style="--h:45%;--d:.2s"></div>
+            <div class="swv" style="--h:78%;--d:.3s"></div>
+            <div class="swv" style="--h:50%;--d:.4s"></div>
+            <div class="swv" style="--h:35%;--d:.5s"></div>
+            <div class="swv" style="--h:68%;--d:.15s"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Texto + imagen barrios -->
+      <div class="two-col" style="margin-top:56px">
+        <div class="col-t">
+          <h3 class="bt-dark reveal">Los árboles que nombraron a Bogotá</h3>
+          <p class="reveal">Hay algo profundamente poético en la forma en que Bogotá nombra sus barrios: con árboles. Cedritos habla del cedro que cubría las laderas orientales. El Nogal evoca los nogales que acompañaron a los primeros colonizadores. Los Pinos, Álamos, Los Sauces — cada nombre es una fotografía del paisaje que fue.</p>
+          <p class="reveal">Con la urbanización, la mayoría de esos árboles desaparecieron. Quedaron los nombres como epitafios verdes en el mapa de la ciudad. Algunos barrios han emprendido procesos de recuperación: siembran nuevamente los árboles que les dieron identidad.</p>
+          <blockquote class="art-bq reveal">"Los barrios recuerdan con su nombre lo que la urbanización les quitó. Son epitafios verdes en el mapa de la ciudad."</blockquote>
+        </div>
+        <div class="col-m">
+          <!-- IMAGEN: assets/images/barrios/barrios-pag36.jpg | 700×900px | pág.36 -->
+          <picture>
+            <source srcset="assets/images/barrios/barrios-pag36.webp" type="image/webp"/>
+            <img src="assets/images/barrios/barrios-pag36.jpg"
+                 alt="Panorama de Bogotá con edificios de barrio — geografía escondida en los nombres"
+                 loading="lazy"
+                 style="width:100%;height:100%;object-fit:cover;object-position:center center"/>
+          </picture>
+        </div>
+      </div>
+
+      <!-- Cards de barrios -->
+      <div class="barrios-grid reveal">
+        <div class="barrio-card">
+          <div class="bc-icon">🌲</div>
+          <h4>Cedritos</h4>
+          <p>Norte de Bogotá. El cedro andino (<em>Cedrela montana</em>) cubría estas laderas. Hoy el barrio replanta cedros en sus parques.</p>
+        </div>
+        <div class="barrio-card">
+          <div class="bc-icon">🌳</div>
+          <h4>El Nogal</h4>
+          <p>Chapinero. Los nogales negros (<em>Juglans neotropica</em>) acompañaron a los primeros habitantes. Especie en vía de extinción en Colombia.</p>
+        </div>
+        <div class="barrio-card">
+          <div class="bc-icon">🌲</div>
+          <h4>Los Pinos</h4>
+          <p>Engativá. Los pinos introducidos durante la colonización marcaron el paisaje. Hoy el barrio debate su reemplazo por especies nativas.</p>
+        </div>
+        <div class="barrio-card">
+          <div class="bc-icon">🍂</div>
+          <h4>Álamos</h4>
+          <p>Engativá. Los álamos blancos (<em>Populus alba</em>) llegaron de Europa. Un árbol foráneo que se convirtió en símbolo local.</p>
+        </div>
+        <div class="barrio-card">
+          <div class="bc-icon">🌿</div>
+          <h4>Los Sauces</h4>
+          <p>Fontibón. Los sauces llorones (<em>Salix babylonica</em>) crecían junto a los humedales. El barrio conserva algunos ejemplares centenarios.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="rv-footer">
+    <div class="rv-footer-inner">
+      <div class="rv-footer-logo">LATENTE</div>
+      <p class="rv-footer-tag">Revista de cultura urbana e identidad bogotana</p>
+      <p class="rv-footer-ed">Edición Nº 1 · Bogotá, Colombia · 2026</p>
+      <!-- PDF en footer -->
+      <a href="assets/pdf/latente-revista.pdf" download="LATENTE-Revista-Ed1.pdf" target="_blank" class="rv-pdf-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Ver / Descargar revista completa en PDF
+      </a>
+      <div class="rv-footer-eq">
+        <p>Diego Armando Duarte Susa · Andrés Orlando Álvarez Barragán</p>
+        <p>Karla Michel Alvarado Guerrero · Maira Fernanda Acevedo Ortega · Leidy Estefania Ariza Moreno</p>
+      </div>
+      <a href="#portada" class="rv-back-top">↑ Volver al inicio</a>
+    </div>
+  </footer>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

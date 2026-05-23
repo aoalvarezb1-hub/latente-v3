@@ -1,0 +1,107 @@
+[
+  [
+    "01",
+    "Portada completa (mujer indígena + ciudad)",
+    "100%x100%",
+    "portada/portada-bg",
+    "OK"
+  ],
+  [
+    "06",
+    "Portadilla chicha (tinaja + maíz)",
+    "100%x100%",
+    "chicha/chicha-hero",
+    "OK"
+  ],
+  [
+    "08",
+    "Retrato mujer indígena (mitad izq.)",
+    "0%x0%→52%x78%",
+    "chicha/chicha-pag7",
+    "OK"
+  ],
+  [
+    "08",
+    "Tinaja chicha precolombina",
+    "48%x0%→100%x65%",
+    "chicha/tl-precolombino",
+    "OK"
+  ],
+  [
+    "09",
+    "Botella Bavaria (estigmatización)",
+    "0%x1%→45%x58%",
+    "chicha/tl-bavaria",
+    "OK"
+  ],
+  [
+    "09",
+    "Casa La Perseverancia (hoy)",
+    "50%x58%→100%x100%",
+    "chicha/tl-hoy",
+    "OK"
+  ],
+  [
+    "11",
+    "Torre catedral Bogotá (portadilla)",
+    "100%x100%",
+    "expresiones/expresiones-hero",
+    "OK"
+  ],
+  [
+    "16",
+    "Calle colonial bogotana (portadilla)",
+    "100%x100%",
+    "rolo/rolo-hero",
+    "OK"
+  ],
+  [
+    "20",
+    "Hombre callejón ladrillo Bogotá",
+    "47%x0%→100%x100%",
+    "rolo/rolo-pag18",
+    "OK"
+  ],
+  [
+    "22",
+    "Skyline Bogotá + Cerros + Parque",
+    "100%x100%",
+    "bogota2050/bogota2050-hero",
+    "OK"
+  ],
+  [
+    "22",
+    "Ciudad Bogotá porción inferior (río)",
+    "0%x30%→100%x100%",
+    "bogota2050/bogota2050-pag24",
+    "OK"
+  ],
+  [
+    "28",
+    "Reja colonial de hierro (portadilla)",
+    "100%x100%",
+    "subterranea/subterranea-hero",
+    "OK"
+  ],
+  [
+    "30",
+    "Arco subterráneo colonial",
+    "5%x38%→95%x98%",
+    "subterranea/subterranea-pag30",
+    "OK"
+  ],
+  [
+    "34",
+    "Ciprés + iglesia neogótica roja (portadilla)",
+    "100%x100%",
+    "barrios/barrios-hero",
+    "OK"
+  ],
+  [
+    "35",
+    "Panorama Bogotá + edificios (barrios)",
+    "42%x35%→100%x100%",
+    "barrios/barrios-pag36",
+    "OK"
+  ]
+]

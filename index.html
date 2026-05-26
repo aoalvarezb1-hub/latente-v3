@@ -67,8 +67,8 @@
     <img id="lb-img" src="" alt=""/>
     <p id="lb-caption"></p>
   </div>
-  <button class="lb-prev" id="lb-prev" onclick="lbNav(-1)">&#8592;</button>
-  <button class="lb-next" id="lb-next" onclick="lbNav(1)">&#8594;</button>
+  <button class="lb-prev" id="lb-prev" onclick="lbNav(-1);event.stopPropagation()">&#8592;</button>
+  <button class="lb-next" id="lb-next" onclick="lbNav(1);event.stopPropagation()">&#8594;</button>
 </div>
 
 <!-- ═══════════════════════════════
@@ -81,8 +81,7 @@
       <picture>
         <source srcset="assets/images/portada/iniciositio.webp" type="image/webp"/>
         <img src="assets/images/portada/iniciositio.png"
-             alt="Portada LATENTE — ciudad de Bogotá"
-             style="width:100%;height:100%;object-fit:cover;object-position:center center"/>
+             alt="Portada LATENTE — ciudad de Bogotá"/>
       </picture>
     </div>
     <div class="portada-overlay"></div>

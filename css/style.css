@@ -87,7 +87,7 @@ a{color:inherit;text-decoration:none}
 .portada-bg{position:absolute;inset:0;z-index:0}
 .portada-img-ph{position:absolute;inset:0;background:#0d0505;overflow:hidden}
 .portada-img-ph picture{display:block;width:100%;height:100%}
-.portada-img-ph picture img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.portada-img-ph picture img{width:100%;height:100%;object-fit:cover;object-position:center center}
 .skyline-svg{position:absolute;bottom:0;left:0;width:100%;height:auto;pointer-events:none}
 .portada-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.55) 50%,rgba(0,0,0,.93) 100%)}
 .portada-chica{position:absolute;right:clamp(16px,6vw,80px);bottom:0;height:clamp(55%,72%,82%);z-index:3;pointer-events:none;mask-image:linear-gradient(to top,transparent 0%,rgba(0,0,0,.4) 8%,black 22%);-webkit-mask-image:linear-gradient(to top,transparent 0%,rgba(0,0,0,.4) 8%,black 22%)}

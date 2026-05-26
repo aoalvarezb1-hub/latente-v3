@@ -435,6 +435,40 @@ window.toggleTunel = function() {
   io.observe(anm);
 })();
 
+/* ── VIDEO AUTOPLAY ON SCROLL ───────────────────────────────── */
+(function() {
+  const videos = [
+    { id: 'flauta-video', threshold: 0.3 },
+    { id: 'rolo-video',   threshold: 0.25 }
+  ];
+  videos.forEach(function(cfg) {
+    const vid = document.getElementById(cfg.id);
+    if (!vid) return;
+    const io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { vid.play(); } else { vid.pause(); }
+      });
+    }, { threshold: cfg.threshold });
+    io.observe(vid);
+  });
+})();
+
+/* ── BARRIOS SWIPER INIT ─────────────────────────────────────── */
+(function() {
+  if (typeof Swiper === 'undefined') return;
+  new Swiper('.barrios-swiper', {
+    loop: true,
+    spaceBetween: 20,
+    slidesPerView: 1,
+    pagination: { el: '.barrios-pagination', clickable: true },
+    navigation: { nextEl: '.barrios-next', prevEl: '.barrios-prev' },
+    breakpoints: {
+      640:  { slidesPerView: 2, spaceBetween: 20 },
+      1024: { slidesPerView: 3, spaceBetween: 24 }
+    }
+  });
+})();
+
 /* ── SERVICE WORKER (PWA) ──────────────────────────────────── */
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
